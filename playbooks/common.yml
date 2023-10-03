@@ -24,3 +24,45 @@
       apt:
         name: wireshark
         state: latest
+
+- name: Create directory,file and set timezone on all servers
+  hosts: webservers, nfs, db
+  remote_user: ec2-user
+  become: yes
+  become_user: root
+  tasks:
+  
+  - name: Create a directory
+      file:
+        path: /home/sample
+        state: directory
+
+    - name: Create a file inside the directory
+      file:
+        path: /home/sample/ansible.txt
+        state: touch
+
+    - name: set timezone
+      timezone:
+        name: 'Canada/CT' 
+		
+- name: update LB server
+  hosts: lb
+  remote_user: ubuntu
+  become: yes
+  become_user: root
+  tasks:
+  
+  - name: Create a directory
+      file:
+        path: /home/sample
+        state: directory
+
+    - name: Create a file inside the directory
+      file:
+        path: /home/sample/ansible.txt
+        state: touch
+
+    - name: set timezone
+      timezone:
+        name: America/Chicago
