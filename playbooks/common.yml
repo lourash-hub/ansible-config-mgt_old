@@ -42,8 +42,8 @@
         state: touch
 
     - name: set timezone
-      timezone:
-        name: 'Canada/CT' 
+      ansible.builtin.timezone:
+        name: America/Chicago 
 		
 - name: update LB server
   hosts: lb
@@ -63,5 +63,5 @@
         state: touch
 
     - name: set timezone
-      timezone:
+      ansible.builtin.timezone:
         name: America/Chicago
