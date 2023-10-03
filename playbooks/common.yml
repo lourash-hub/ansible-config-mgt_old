@@ -31,8 +31,7 @@
   become: yes
   become_user: root
   tasks:
-  
-  - name: Create a directory
+    - name: Create a directory
       file:
         path: /home/sample
         state: directory
@@ -53,7 +52,7 @@
   become_user: root
   tasks:
   
-  - name: Create a directory
+    - name: Create a directory
       file:
         path: /home/sample
         state: directory
